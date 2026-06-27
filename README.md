@@ -1,119 +1,110 @@
-# Finger Tracking Web
-
-Finger Tracking Web is a real-time **hand and finger tracking web application** built  by harsh2hell using **MediaPipe Hands** and modern JavaScript.  
-It runs completely in the browser and uses your webcam to detect fingers and basic hand gestures — no cloudAI backend required.
-
-This project is still in development, secured by General Public License v3.0. Contributions and feedback are welcome on github.
-
----
-
-##  Latest Version
-**v1.5 - Updation of UI & UX **
+<div align="center">
+  <h1>TrackOS</h1>
+  <p><b>Real-time desktop hand tracking and gesture automation controller</b></p>
+  <p>
+    <a href="https://github.com/harsh2hell/Finger-Tracking-Web/licenses"><img src="https://img.shields.io/github/license/harsh2hell/Finger-Tracking-Web?style=flat-square&color=58a6ff" alt="License" /></a>
+    <a href="https://github.com/harsh2hell/Finger-Tracking-Web/releases"><img src="https://img.shields.io/github/v/release/harsh2hell/Finger-Tracking-Web?style=flat-square&color=2ea043" alt="Latest Version" /></a>
+    <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-8b949e?style=flat-square" alt="Platforms" />
+  </p>
+</div>
 
 ---
 
-## Features
+### Update: Rebranded to TrackOS (v2.0)
 
-- Real-time webcam-based hand tracking  
-- Finger counting (index, middle, ring, pinky)  
-- Basic gesture recognition  
-  - Fist  
-  - Index Finger  
-  - Open Palm  
-  - 
-- Menu-based UI (camera opens only after user selection)  
-- Runs fully in the browser (no backend, no uploads)  
-- Modular file structure (easy to extend)
+This repository has been upgraded from **Finger Tracking Web** to **TrackOS v2.0 Desktop**. The application is now containerized inside an Electron runtime wrapper, allowing you to control your local system's volume and key navigation through high-precision, on-device gesture tracking.
+
+Key improvements in version 2.0:
+* **Native Desktop Integration**: Migrated from a web-only codebase to a native Electron wrapper shell.
+* **On-Device Gesture Controls**: Hand configurations trigger physical system actions (like Arrow Key presses and Audio Volume ticks) using secure background scripting.
+* **Dual Hand Telemetry**: Track up to two hands concurrently with dynamic wrist tracking statistics.
+* **Visual HUD Overlays**: Custom Canvas-rendered skeletal structures, joint coordinate nodes, and active fingertip targeting rings.
+* **Installer Compilation Config**: Pre-configured build systems to package distributions into installable targets (.dmg and .exe).
+
+---
+
+## Core Features
+
+* **Privacy-First Inference**: Runs Google MediaPipe Hands classification locally on your GPU/CPU. Webcam feeds are processed fully in the application layer and never sent to cloud servers.
+* **Configurable Action Mappings**: Choose which system actions trigger when specific gestures (Victory Sign, Index Finger, Thumbs Up/Down, Fist, and Rock On) are detected.
+* **Telemetry Diagnostics Panel**: Live feed monitors for current classification output, active tracking frames-per-second, tracked fingers count, and system logs.
+* **Control Safeguards**: Cooldown restrictions (800ms for navigation, 250ms for volume adjustments) to prevent unintended key-trigger looping.
+* **Setup Installer Pipelines**: Build settings are prepared to package app files directly into installer environments.
+
+---
+
+## System Architecture
+
+```
+TrackOS/
+├── main.js                 # Electron main script & OS command executor processes
+├── preload.js              # Secure IPC bridge exposing platform and command interfaces
+├── index.html              # Master application dashboard structure and GUI
+├── css/
+│   └── style.css           # Application design styling (Primer inspired dark mode)
+├── js/
+│   ├── app.js              # State synchronizer, user configurations, and UI listeners
+│   ├── tracking.js         # MediaPipe processor, canvas graphics, and wrist HUD overlays
+│   ├── gestures.js         # Math-based gesture classification logic (knuckle positions)
+│   └── actions.js          # Cooldown managers and command execution requests
+├── package.json            # Build descriptors, dependencies, and builder configuration
+└── README.md               # Quickstart description page
+```
 
 ---
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript (ES6)
-- MediaPipe Hands
-- Web Camera API
+* **Shell UI**: HTML5 / Vanilla CSS3 (Custom styling) / JavaScript (ES6 Modules)
+* **Application Shell**: Electron container
+* **AI Computer Vision**: Google MediaPipe Hands API
+* **OS Bridge scripting**: macOS AppleScript (`osascript`) / Windows PowerShell COM Shell objects
 
 ---
 
-## Project Structure
+## Development Setup
 
-Finger-Tracking-Web/
-│
-├── index.html # Landing / menu page
-├── finger.html # Finger tracking feature
-├── gesture.html # Gesture recognition feature
-│
-├── css/
-│ └── style.css # Global styles & UI
-│
-├── js/
-│ ├── finger.js # Finger counting logic
-│ └── gesture.js # Gesture detection logic
-│
-└── README.md
+TrackOS requires Node.js to be installed on your workstation.
 
-
----
-
-## ▶️ How to Run the Project
-
-⚠️ **Important:**  
-Camera-based web apps **must be run using a local server**.  
-Opening HTML files directly (`file://`) will NOT work.
-
-### Option 1: VS Code Live Server (Recommended)
-
-1. Open the project folder in **VS Code**
-2. Install the extension **Live Server** 
-3. Right-click `index.html`
-4. Click **Open with Live Server**
-
-The project will open at:
-```
-http://127.0.0.1:5500/index.html
-```
-
----
-
-### Alternate Option 2: Using Python
-
-If Python is installed:
-
+### 1. Install Dependencies
+Clone this repository locally, navigate to the folder, and run:
 ```bash
-cd Finger-Tracking-Web
-python -m http.server 8000
+npm install
 ```
 
-Then open in browser:
+### 2. Run in Developer Mode
+Launch the application shell with active inspector consoles:
+```bash
+npm start
 ```
-http://127.0.0.1:5500/index.html
+
+---
+
+## Compilation & Packaging
+
+Convert raw source code folders into single installer wizards for end-users.
+
+### Package for macOS (DMG Installer)
+Creates a distribution folder with a `.dmg` mounting volume setup inside `dist/`:
+```bash
+npm run build:mac
 ```
 
-## Features
+### Package for Windows (NSIS EXE Installer)
+Compiles a setup wizard installer executable under `dist/`:
+```bash
+npm run build:win
+```
 
-- The project currently ignores thumb detection for stability
-- Finger counting is based on vertical finger position
-- Gesture recognition is rule-based (not ML-trained gestures)
-- Works best on desktop browsers (Chrome / Edge)
+### Package for All Targets
+```bash
+npm run build:all
+```
 
-## Credits
+---
 
-Built and maintained by harsh2hell
-GitHub: @harsh2hell 
-Repository: [https://github.com/harsh2hell/Finger-Tracking-Web]()
-Powered by MediaPipe Hands by Google.
+## Credits & License
 
-## License
-
-This project is made under General Public Licence and free to use for learning and experimentation.
-Feel free to fork, modify, and build upon it.
-
-## Future Improvements (v2.0)
-
-Face detection (Age, Gender)
-Multi-hand tracking
-Gesture-based actions (keyboard / volume / slides)
-
-**Full Changelog**: https://github.com/harsh2hell/Finger-Tracking-Web/compare/V1...V1.5
+* **Author & Maintainer**: harsh2hell (GitHub: [@harsh2hell](https://github.com/harsh2hell))
+* **Core Libraries**: MediaPipe Hands by Google, Electron by OpenJS Foundation.
+* **License**: GPL-3.0 License. Free for learning, modification, and distribution.
