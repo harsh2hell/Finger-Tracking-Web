@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://*.jsdelivr.net; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+  <title>TrackOS v2.0 Desktop</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- MAIN APP CONTAINER -->
+  <div class="app-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5"/>
+            <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6"/>
+            <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+            <path d="M6 14v1a5 5 0 0 0 5 5h3a6 6 0 0 0 6-6V11a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2"/>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <h1>TrackOS</h1>
+          <span>v2.0 Desktop</span>
+        </div>
+      </div>
+      
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="home-tab">
+          <span class="icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </span> Home
+        </button>
+        <button class="nav-item" data-tab="dashboard-tab">
+          <span class="icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </span> Dashboard
+        </button>
+        <button class="nav-item" data-tab="profile-tab">
+          <span class="icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </span> Profile
+        </button>
+        <button class="nav-item" data-tab="settings-tab">
+          <span class="icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </span> Settings
+        </button>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p>Built by <b>harsh2hell</b></p>
+        <a href="https://github.com/harsh2hell/Finger-Tracking-Web" target="_blank" class="github-link">GitHub Repo</a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- TOP HEADER -->
+      <header class="top-header">
+        <div class="header-title">
+          <h2 id="current-tab-title">Home</h2>
+          <p id="current-tab-desc">Welcome to your gesture automation control center</p>
+        </div>
+        
+        <div class="status-bar">
+          <span class="status-pill platform-pill" id="platform-indicator">OS: macOS</span>
+          <span class="status-pill status-off" id="camera-status-indicator">Camera: Closed</span>
+          <span class="status-pill status-off" id="control-status-indicator">OS Control: Inactive</span>
+        </div>
+      </header>
+
+      <!-- TAB: HOME -->
+      <section id="home-tab" class="tab-content active">
+        <div class="home-hero-card glass-panel">
+          <div class="hero-glow"></div>
+          <h2>Unleash Gesture Power with TrackOS</h2>
+          <p>Control presentation slides, navigate volume, and execute native operating system automation commands purely with hand signals captured by your webcam.</p>
+          <div class="hero-actions">
+            <button class="hero-btn" onclick="document.querySelector('[data-tab=dashboard-tab]').click()">Go to Dashboard</button>
+          </div>
+        </div>
+
+        <div class="home-grid">
+          <!-- QUICK START -->
+          <div class="content-card glass-panel instruction-guide">
+            <h3>Quick Start Guide</h3>
+            <div class="guide-steps">
+              <div class="step">
+                <span class="step-num">1</span>
+                <div>
+                  <h4>Start Dashboard Camera</h4>
+                  <p>Navigate to the <b>Dashboard</b> tab, and click <b>Start Camera</b> to stream your webcam feed.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num">2</span>
+                <div>
+                  <h4>Configure Profiles</h4>
+                  <p>Head to the <b>Profile</b> tab to customize actions (like pressing Arrow Keys or Muting) for specific hand gestures.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num">3</span>
+                <div>
+                  <h4>Enable Automation</h4>
+                  <p>In the <b>Settings</b> tab, toggle <b>Enable OS Controls</b> to active. Your hands will now interact with your OS!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT SUMMARY -->
+          <div class="content-card glass-panel summary-info">
+            <h3>About TrackOS</h3>
+            <p>TrackOS leverages local Google MediaPipe models directly inside the browser rendering shell. All AI computations are executed on-device, meaning zero latency, zero cloud uploads, and complete user privacy.</p>
+            <hr class="card-divider" style="margin: 15px 0;">
+            <h4>Version 2.0 Enhancements:</h4>
+            <ul class="changelog-list">
+              <li>• Multi-hand tracking engine (up to 2 hands)</li>
+              <li>• Reliable thumb detection with handedness rules</li>
+              <li>• Floating wrist HUD card overlays & pulsing target rings</li>
+              <li>• Secure IPC integration for Windows and macOS automation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: DASHBOARD -->
+      <section id="dashboard-tab" class="tab-content">
+        <div class="workspace-grid">
+          
+          <!-- CAMERA WORKSPACE -->
+          <div class="camera-card glass-panel">
+            <div class="video-wrapper">
+              <video id="video" autoplay playsinline style="display: none;"></video>
+              <canvas id="canvas"></canvas>
+              
+              <div class="camera-overlay-loader" id="camera-loader">
+                <div class="spinner"></div>
+                <p>Initializing camera & hand models...</p>
+              </div>
+              
+              <div class="action-toast-overlay" id="action-toast">
+                <span id="action-toast-text">Victory Sign Detected</span>
+              </div>
+            </div>
+            
+            <div class="camera-controls-bar">
+              <button id="toggle-camera-btn" class="ctrl-btn success-btn">Start Camera</button>
+              <div class="current-track-pill">
+                <span class="label">Gesture:</span>
+                <span id="workspace-current-gesture" class="val">No Hand</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DIAGNOSTICS & TELEMETRY -->
+          <div class="console-card glass-panel">
+            <div class="mini-metrics">
+              <div class="metric">
+                <span class="label">FPS Rate</span>
+                <span class="val" id="dash-fps">0.0</span>
+              </div>
+              <div class="metric">
+                <span class="label">Fingers Up</span>
+                <span class="val" id="dash-fingers">0</span>
+              </div>
+              <div class="metric">
+                <span class="label">Hands Tracked</span>
+                <span class="val" id="dash-hands-tracked">0 / 2</span>
+              </div>
+            </div>
+
+            <div class="console-box-container">
+              <div class="console-header">
+                <span>System Event Log</span>
+                <button class="clear-btn" id="clear-dash-console">Clear Log</button>
+              </div>
+              <div class="console-log" id="dash-console">
+                <div class="console-line system">[SYSTEM] TrackOS starting up... Ready.</div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- TAB: PROFILE (MAPPINGS) -->
+      <section id="profile-tab" class="tab-content">
+        <div class="content-card glass-panel">
+          <div class="mappings-header">
+            <h3>Gesture Mappings Configuration</h3>
+            <p>Customize what native OS events are fired when hand gestures are sustained.</p>
+          </div>
+
+          <div class="mapping-table-container">
+            <table class="mapping-table">
+              <thead>
+                <tr>
+                  <th>Gesture</th>
+                  <th>System Action</th>
+                  <th>Keyboard / Event Simulation</th>
+                  <th>Action Trigger Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="gesture-col">Victory Sign</td>
+                  <td>
+                    <select class="action-select" data-gesture="victory">
+                      <option value="press-key-right" selected>Simulate [Right Arrow]</option>
+                      <option value="press-key-left">Simulate [Left Arrow]</option>
+                      <option value="volume-up">Volume Up</option>
+                      <option value="volume-down">Volume Down</option>
+                      <option value="volume-mute">Mute Audio</option>
+                      <option value="none">None</option>
+                    </select>
+                  </td>
+                  <td><span class="code-badge">Right Arrow</span></td>
+                  <td>Ideal for navigating forward in presentations (slides)</td>
+                </tr>
+                <tr>
+                  <td class="gesture-col">Index Finger</td>
+                  <td>
+                    <select class="action-select" data-gesture="index">
+                      <option value="press-key-right">Simulate [Right Arrow]</option>
+                      <option value="press-key-left" selected>Simulate [Left Arrow]</option>
+                      <option value="volume-up">Volume Up</option>
+                      <option value="volume-down">Volume Down</option>
+                      <option value="volume-mute">Mute Audio</option>
+                      <option value="none">None</option>
+                    </select>
+                  </td>
+                  <td><span class="code-badge">Left Arrow</span></td>
+                  <td>Ideal for navigating backward in presentations (slides)</td>
+                </tr>
+                <tr>
+                  <td class="gesture-col">Thumbs Up</td>
+                  <td>
+                    <select class="action-select" data-gesture="thumbs_up">
+                      <option value="press-key-right">Simulate [Right Arrow]</option>
+                      <option value="press-key-left">Simulate [Left Arrow]</option>
+                      <option value="volume-up" selected>Volume Up</option>
+                      <option value="volume-down">Volume Down</option>
+                      <option value="volume-mute">Mute Audio</option>
+                      <option value="none">None</option>
+                    </select>
+                  </td>
+                  <td><span class="code-badge">Volume Up (+6%)</span></td>
+                  <td>Raises audio volume when held</td>
+                </tr>
+                <tr>
+                  <td class="gesture-col">Thumbs Down</td>
+                  <td>
+                    <select class="action-select" data-gesture="thumbs_down">
+                      <option value="press-key-right">Simulate [Right Arrow]</option>
+                      <option value="press-key-left">Simulate [Left Arrow]</option>
+                      <option value="volume-up">Volume Up</option>
+                      <option value="volume-down" selected>Volume Down</option>
+                      <option value="volume-mute">Mute Audio</option>
+                      <option value="none">None</option>
+                    </select>
+                  </td>
+                  <td><span class="code-badge">Volume Down (-6%)</span></td>
+                  <td>Decreases audio volume when held</td>
+                </tr>
+                <tr>
+                  <td class="gesture-col">Fist</td>
+                  <td>
+                    <select class="action-select" data-gesture="fist">
+                      <option value="press-key-right">Simulate [Right Arrow]</option>
+                      <option value="press-key-left">Simulate [Left Arrow]</option>
+                      <option value="volume-up">Volume Up</option>
+                      <option value="volume-down">Volume Down</option>
+                      <option value="volume-mute" selected>Mute Audio Toggle</option>
+                      <option value="none">None</option>
+                    </select>
+                  </td>
+                  <td><span class="code-badge">Audio Mute</span></td>
+                  <td>Toggles system audio volume on/off</td>
+                </tr>
+                <tr>
+                  <td class="gesture-col">Rock On</td>
+                  <td>
+                    <select class="action-select" data-gesture="rock">
+                      <option value="press-key-right">Simulate [Right Arrow]</option>
+                      <option value="press-key-left">Simulate [Left Arrow]</option>
+                      <option value="volume-up">Volume Up</option>
+                      <option value="volume-down">Volume Down</option>
+                      <option value="volume-mute">Mute Audio</option>
+                      <option value="none" selected>None (Disabled)</option>
+                    </select>
+                  </td>
+                  <td><span class="code-badge">N/A</span></td>
+                  <td>Custom toggle for shortcuts</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mappings-footer">
+            <p><b>Note on Cooldown:</b> Navigation commands (like Arrow Keys) have a built-in 800ms cooldown to prevent rapid trigger cycling. Volume commands auto-fire every 250ms when held.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: SETTINGS -->
+      <section id="settings-tab" class="tab-content">
+        <div class="home-grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+          
+          <!-- SYSTEM ENGINE SETTINGS -->
+          <div class="content-card glass-panel">
+            <h3>Engine Parameters</h3>
+            <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 20px;">Fine-tune MediaPipe Hands tracking sensitivity.</p>
+            
+            <div class="settings-group">
+              <label class="toggle-switch-container">
+                <input type="checkbox" id="os-control-toggle">
+                <span class="slider round"></span>
+                <span class="toggle-label">Enable OS Controls</span>
+              </label>
+              <p class="settings-desc">Allow gestures to simulate keypresses and volume actions on your computer.</p>
+            </div>
+            
+            <hr class="card-divider" style="margin: 20px 0;">
+
+            <div class="settings-group">
+              <div class="slider-control">
+                <div class="slider-header">
+                  <label for="detection-confidence">Min Detection Confidence</label>
+                  <span id="det-conf-val">0.70</span>
+                </div>
+                <input type="range" id="detection-confidence" min="0.10" max="0.95" step="0.05" value="0.70">
+              </div>
+
+              <div class="slider-control">
+                <div class="slider-header">
+                  <label for="tracking-confidence">Min Tracking Confidence</label>
+                  <span id="track-conf-val">0.70</span>
+                </div>
+                <input type="range" id="tracking-confidence" min="0.10" max="0.95" step="0.05" value="0.70">
+              </div>
+
+              <div class="slider-control">
+                <div class="slider-header">
+                  <label for="max-hands">Max Hands to Track</label>
+                  <span id="max-hands-val">2</span>
+                </div>
+                <input type="range" id="max-hands" min="1" max="2" step="1" value="2">
+              </div>
+            </div>
+          </div>
+
+          <!-- RENDERER SETTINGS -->
+          <div class="content-card glass-panel">
+            <h3>Visual HUD Settings</h3>
+            <p style="color: var(--text-sub); font-size: 0.85rem; margin-bottom: 20px;">Customize camera workspace canvas overlays.</p>
+            
+            <div class="settings-group" style="gap: 16px;">
+              <label class="checkbox-container">
+                <input type="checkbox" id="show-skeleton-toggle" checked>
+                <span class="checkmark"></span>
+                Draw Hand Skeleton Connectors
+                <p style="font-size: 0.76rem; color: var(--text-sub); margin-top: 4px; font-weight: normal;">Render lines connecting finger joints (Cyan/Purple).</p>
+              </label>
+              
+              <label class="checkbox-container">
+                <input type="checkbox" id="show-joints-toggle" checked>
+                <span class="checkmark"></span>
+                Draw Joint Node Points
+                <p style="font-size: 0.76rem; color: var(--text-sub); margin-top: 4px; font-weight: normal;">Draw circular nodes at fingertip and joint coordinates.</p>
+              </label>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- MediaPipe Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+
+  <!-- Modular Scripts -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
